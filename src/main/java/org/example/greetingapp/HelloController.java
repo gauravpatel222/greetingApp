@@ -5,6 +5,8 @@ import org.example.greetingapp.repository.GreetingRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 public class HelloController {
 
@@ -53,5 +55,12 @@ public class HelloController {
     public Greeting getGreeting(@PathVariable Long id) {
         return greetingRepository.findById(id).orElse(null);
     }
+
+// UC6 getting all the greeting
+    @GetMapping("/greeting")
+    public List<Greeting> getGreetings() {
+        return greetingRepository.findAll();
+    }
+
 
 }
