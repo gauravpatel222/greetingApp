@@ -49,5 +49,9 @@ public class HelloController {
         return message;
     }
 
+    @GetMapping("/greeting/{id}")
+    public Greeting getGreeting(@PathVariable Long id) {
+        return greetingRepository.findById(id).orElse(null);
+    }
 
 }
