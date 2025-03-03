@@ -72,6 +72,17 @@ public class HelloController {
                 })
                 .orElseThrow(() -> new RuntimeException("Greeting not found with id " + id));
     }
+// UC8
+// Delete an existing Greeting message by ID
+@DeleteMapping("/greeting/{id}")
+public String deleteGreeting(@PathVariable Long id) {
+    if (greetingRepository.existsById(id)) {
+        greetingRepository.deleteById(id);
+        return "Greeting with ID " + id + " has been deleted.";
+    } else {
+        return "Greeting not found with ID " + id;
+    }
+}
 
 
 
