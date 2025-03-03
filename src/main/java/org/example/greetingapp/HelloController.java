@@ -62,5 +62,17 @@ public class HelloController {
         return greetingRepository.findAll();
     }
 
+    // Update an existing Greeting message
+    @PutMapping("/greeting/{id}")
+    public Greeting updateGreeting(@PathVariable Long id, @RequestBody Greeting updatedGreeting) {
+        return greetingRepository.findById(id)
+                .map(greeting -> {
+                    greeting.setMessage(updatedGreeting.getMessage());
+                    return greetingRepository.save(greeting);
+                })
+                .orElseThrow(() -> new RuntimeException("Greeting not found with id " + id));
+    }
+
+
 
 }
