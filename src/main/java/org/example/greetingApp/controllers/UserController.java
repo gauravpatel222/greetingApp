@@ -49,7 +49,11 @@ public class UserController {
     public AuthUserDTO forgotPassword(@RequestBody PassDTO pass, @PathVariable String email){
         return iAuthInterface.forgotPassword(pass, email);
     }
-
+    //UC14 --> Added reset password functionality
+    @PutMapping("/resetPassword/{email}")
+    public String resetPassword(@PathVariable String email ,@RequestParam String currentPass, @RequestParam String newPass){
+        return iAuthInterface.resetPassword(email, currentPass, newPass);
+    }
 
 
 
