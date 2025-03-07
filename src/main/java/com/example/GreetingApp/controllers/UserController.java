@@ -24,5 +24,10 @@ public class UserController {
         return iAuthInterface.register(user);
     }
 
+    //UC10 --> For User Login
+    @PostMapping(path ="/login")
+    public String login(@RequestBody LoginDTO user){
+        return iAuthInterface.login(user);
+    }
 
 }
