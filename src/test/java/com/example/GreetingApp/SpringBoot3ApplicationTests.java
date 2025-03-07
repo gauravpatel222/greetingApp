@@ -1,13 +1,13 @@
-package org.example.greetingapp;
+package com.example.GreetingApp;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class GreetingAppApplicationTests {
+class GreetingAppApplicationTest {
 
-    @Test
-    void contextLoads() {
-    }
+	@Test
+	void contextLoads() {
+	}
 
 }
